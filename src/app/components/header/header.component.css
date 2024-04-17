@@ -1,5 +1,5 @@
 header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -74,4 +74,8 @@ h3 {
 .navigation li a.active {
   background: #112434;
   color: #fff;
+}
+
+.navigation.fade {
+  background-color: rgba(51, 51, 51, 0.7); /* Scroll ile değiştirilecek arkaplan rengi */
 }
