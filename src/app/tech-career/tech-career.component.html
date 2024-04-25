@@ -12,7 +12,7 @@
   </section>
   <div class="center " style="margin-top: 100px">
 
-    <div *ngFor=" let patika of patikaList"class="card">
+    <div *ngFor=" let tech of Techlist" class="card">
       <div class="additional">
         <div class="user-card">
           <div class="level center">
@@ -21,19 +21,19 @@
           <div class="points center">
             5,312 Points
           </div>
-          <img width="150" height="160"
-               src="./assets/%5Bremoval.ai%5D_b3a91aa6-80b5-466d-95fd-81517b25f86d-dgjguipj_400x400.png" role="img"
+          <img width="100" height="100"
+               src="/assets/img.png" role="img"
                aria-labelledby="title desc" class="svgcenter" alt=""/>
         </div>
         <div class="more-info">
-          <h2 class="field-name">{{patika.name}}</h2>
+          <h2 class="field-name">{{tech.name}}</h2>
           <div class="coords">
-            <span>Group Name</span>
-            <span>{{patika.deadline}}</span>
+
+            <span  >{{tech.deadline}}</span>
           </div>
-          <div class="coords">
-            <span>Position/Role</span>
-            <span>{{ patika.location }}</span>
+          <div class="coords-type">
+
+            <span>{{ tech.eventType }}</span>
           </div>
           <div class="stats">
             <div>
@@ -60,8 +60,8 @@
         </div>
       </div>
       <div class="general">
-        <img width="560px" height="300px"
-             src="{{patika.imgUrl}}" role="img"
+        <img style="width: 500px; max-height: 100%;"
+             src="{{tech.imgUrl}}" role="img"
              aria-labelledby="title desc" class="svgcenter" alt=""/>
 
       </div>
