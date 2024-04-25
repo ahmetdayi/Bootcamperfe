@@ -16,7 +16,7 @@ import {NgForOf} from "@angular/common";
 })
 export class TechCareerComponent {
   Techlist: GetTechCareerResponse[] = [];
-
+  isFetching = false;
   constructor(private service: TechService) {
   }
 
@@ -25,6 +25,7 @@ export class TechCareerComponent {
   }
 
   private getTechs() {
+
     this.service.getTechs().subscribe(
       data => {
         this.Techlist = data;

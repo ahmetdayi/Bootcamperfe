@@ -65,7 +65,7 @@ h3 {
 }
 
 .cards {
-  display: grid;
+  display: flex;
   align-items: center;
   justify-items: center;
   grid-template-columns: 1fr;

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {RouterLink} from "@angular/router";
+import {RouterLink, Routes} from "@angular/router";
 import {PatikaComponent} from "../../patika/patika.component";
 import {CoderSpaceComponent} from "../../coder-space/coder-space.component";
 import {TechCareerComponent} from "../../tech-career/tech-career.component";

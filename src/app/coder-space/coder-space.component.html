@@ -11,8 +11,8 @@
     </p>
   </section>
   <div class="center " style="margin-top: 100px">
-
-    <div *ngFor=" let coder of coderList" class="card">
+  @for (coder of coderList; track coder.name){
+        <div  class="card">
       <div class="additional">
         <div class="user-card">
           <div class="level center">
@@ -22,7 +22,7 @@
             5,312 Points
           </div>
           <img width="150" height="160"
-               src="./assets/%5Bremoval.ai%5D_b3a91aa6-80b5-466d-95fd-81517b25f86d-dgjguipj_400x400.png" role="img"
+               src="./assets/logo-mor-white-removebg-preview.png" role="img"
                aria-labelledby="title desc" class="svgcenter" alt=""/>
         </div>
         <div class="more-info">
@@ -66,6 +66,9 @@
 
       </div>
     </div>
+
+
+  }
 
   </div>
 </div>

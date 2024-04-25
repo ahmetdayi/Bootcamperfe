@@ -89,13 +89,8 @@
   position: relative;
   width: 150px;
   height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgb(253, 143, 14),
-    rgb(228, 128, 16),
-    rgb(216, 107, 20),
-    rgb(211, 100, 18)
-  );
+background: linear-gradient(to bottom, rgb(0, 0, 255), rgb(0, 204, 204) 33%, rgb(153, 153, 255) 66%, rgb(128, 0, 128) 100%);
+
   transition: width 0.4s;
   overflow: hidden;
   z-index: 2;

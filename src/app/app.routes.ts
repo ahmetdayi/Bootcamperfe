@@ -4,13 +4,18 @@ import {HomeComponent} from "./components/home/home.component";
 import {BootcampComponent} from "./components/bootcamp/bootcamp.component";
 import {ProfileComponent} from "./components/profile/profile.component";
 import {NgModule} from "@angular/core";
+import {RegisterComponent} from "./register/register.component";
+import {PatikaComponent} from "./patika/patika.component";
+import {CoderSpaceComponent} from "./coder-space/coder-space.component";
+import {TechCareerComponent} from "./tech-career/tech-career.component";
 
 export const routes: Routes = [
   {path: "", component: HomeComponent},
   {path: "login", component: LoginComponent},
-  {path: "patika", component: BootcampComponent},
-  {path: "coderspace", component: BootcampComponent},
-  {path: "techcareer", component: BootcampComponent},
+  {path:"register", component: RegisterComponent},
+  {path: "patika", component: PatikaComponent},
+  {path: "coderspace", component: CoderSpaceComponent},
+  {path: "techcareer", component: TechCareerComponent},
   {path: "profile", component: ProfileComponent},
 ];
 
