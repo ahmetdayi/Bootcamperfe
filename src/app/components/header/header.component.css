@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Mooli&display=swap");
+
 header {
   position: fixed;
   top: 0;
@@ -19,7 +21,6 @@ header {
   header {
     padding: 30px 10px;
   }}
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Mooli&display=swap");
 
 * {
   margin: 0;
