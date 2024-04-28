@@ -8,11 +8,13 @@ import {RegisterComponent} from "./register/register.component";
 import {PatikaComponent} from "./patika/patika.component";
 import {CoderSpaceComponent} from "./coder-space/coder-space.component";
 import {TechCareerComponent} from "./tech-career/tech-career.component";
+import {TeamComponent} from "./team/team.component";
 
 export const routes: Routes = [
   {path: "", component: HomeComponent},
+  {path: "about", component: TeamComponent},
   {path: "login", component: LoginComponent},
-  {path:"register", component: RegisterComponent},
+  {path: "register", component: RegisterComponent},
   {path: "patika", component: PatikaComponent},
   {path: "coderspace", component: CoderSpaceComponent},
   {path: "techcareer", component: TechCareerComponent},

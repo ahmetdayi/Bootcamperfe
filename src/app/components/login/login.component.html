@@ -8,13 +8,17 @@
     <div class="login">
       <h2>Login</h2>
       <div class="inputBx">
-        <input type="text" placeholder="Username">
+        <input type="email" placeholder="E-mail" id="email" name="userId" [(ngModel)]="authUserRequest.email"
+           class="mt-1 p-2 block w-full border rounded-md shadow-sm">
       </div>
       <div class="inputBx">
-        <input type="password" placeholder="Password">
+
+        <input type="password" placeholder="Password" [(ngModel)]="authUserRequest.password">
       </div>
       <div class="inputBx">
-        <input type="submit" value="Sign in">
+
+        <input  (click)="getToken()" type="submit" routerLink="" value="Sign in">
+
       </div>
       <div class="links">
 
@@ -23,6 +27,7 @@
       </div>
     </div>
   </div>
+
 </div>
 <!--ring div ends here-->
 

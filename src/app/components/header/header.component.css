@@ -46,6 +46,7 @@ h3 {
 
 
 .logo {
+
   color: white;
   font-weight: 700;
   font-size: clamp(1.1rem, 6vw, 1.7rem);
@@ -53,7 +54,9 @@ h3 {
 }
 
 .navigation {
+  top: 0;
   display: flex;
+  font-size: xxx-large;
   justify-content: center;
   align-items: center;
 }

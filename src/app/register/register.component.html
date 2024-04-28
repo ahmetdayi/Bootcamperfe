@@ -23,7 +23,7 @@
       <input type="password" id="password" placeholder="password"  name="password" [(ngModel)]="createUserRequest.password" class="mt-1 p-2 block w-full border rounded-md shadow-sm">
       </div>
       <div class="inputBx">
-        <input type="submit" value="Sign up">
+        <input type="submit" (click)="createUser()"  routerLink="../login" value="Sign up">
       </div>
 
     </div>

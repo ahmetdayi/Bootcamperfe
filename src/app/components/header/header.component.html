@@ -1,13 +1,19 @@
+<header id="header" class="fixed top-0 left-0 w-full  text-white py-4 transition-opacity duration-500 opacity-100">
+    <a routerLink="" >
+      <img class=" h-40 w-40 top-0 left-0 fixed" src="assets/Bootcamper_transparent.png" alt="Logo">
+    </a>
+    <ul class="navigation">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Events</a></li>
+@if(!islogin()){
+  <li><a  routerLink="login">Login</a></li>
+      <li><a routerLink="register">Register</a></li>
+}@else{
+<li><a routerLink="profile">Profile</a></li>
+      <li><a (click)="logout()" routerLink="">Logout</a></li>
+}
 
-<div class="body2">
-<header>
+    </ul>
+  </header>
 
-  <a href="#" class="logo">Logo</a>
-  <ul class="navigation">
-    <li><a href="#" class="active">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Events</a></li>
-    <li><a routerLink="login">Login</a></li>
-  </ul>
-</header>
-</div>
