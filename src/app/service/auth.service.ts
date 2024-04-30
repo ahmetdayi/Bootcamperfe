@@ -36,6 +36,7 @@ export class AuthService {
 // refresh tokeni alıp yeni tokenle değiştiriyor
   public async getJwtTokenByRefreshToken() {
     let promise = await firstValueFrom(this.refreshToken());
+    console.log(promise)
 
     localStorage.setItem("jwtToken", promise["access_token"]);
     localStorage.setItem("refreshToken", promise["refresh_token"]);

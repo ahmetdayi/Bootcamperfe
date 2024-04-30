@@ -22,6 +22,6 @@ export class UserService {
   }
 
   public  getUser(id: string): Observable<UserResponse> {
-    return this.httpClient.get<UserResponse>(`${this.baseUrl + this.findbyid}/`+id);
+    return this.http.GET<UserResponse>(`${this.baseUrl + this.findbyid}/`+id);
   }
 }

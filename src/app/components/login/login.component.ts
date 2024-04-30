@@ -51,9 +51,7 @@ export class LoginComponent {
 
         localStorage.setItem("jwtToken", response.access_token)
         localStorage.setItem("refreshToken", response.refresh_token)
-        localStorage.setItem("userId", String(response.userResponse.id))
-        const currentTimeInSeconds: number = Math.floor(Date.now() / 1000);
-
+        localStorage.setItem("userId", response.userResponse.id)
         this.userId = this.authResponse.userResponse.id;
 
       },

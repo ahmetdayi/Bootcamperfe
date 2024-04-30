@@ -13,6 +13,7 @@ export class PatikaService {
   constructor(private httpclient: HttpClient) { }
 
   getPatikas() {
+
     return this.httpclient.get<GetPatikaResponse[]>(this.baseUrl + this.urlPlus).pipe(
       tap(response => console.log('Raw API response:', response))
     );

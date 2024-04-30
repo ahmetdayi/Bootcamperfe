@@ -14,13 +14,14 @@ import {CustomInterceptor} from "./interceptor/custom-interceptor";
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideHttpClient(
-      withInterceptorsFromDi(),
-    ),
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: CustomInterceptor,
-      multi: true,
-    },
+    // provideHttpClient(
+    //   withInterceptorsFromDi(),
+    // ),
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: CustomInterceptor,
+    //   multi: true,
+    // },
+    provideHttpClient()
   ]
 };
