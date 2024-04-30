@@ -2,11 +2,14 @@ import {Component} from '@angular/core';
 import {UserResponse} from "../../DTO/user";
 import {UserService} from "../../service/user.service";
 import {AuthService} from "../../service/auth.service";
+import {TeamComponent} from "../../team/team.component";
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [],
+  imports: [
+    TeamComponent
+  ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
@@ -24,11 +27,11 @@ userId: string = "";
 
   }
 
- getUser(): void {
-    // @ts-ignore
-   this.userId=localStorage.getItem("userId");
-    this.userService.getUser(this.userId).subscribe(
+ async getUser(): Promise<void> {
+this.userId=localStorage.getItem("userId");
+   (await this.userService.getUser(this.userId)).subscribe(
       (response: UserResponse) => {
+
         this.user = response;
         console.log(this.user.email);
       },

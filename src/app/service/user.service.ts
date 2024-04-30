@@ -1,9 +1,11 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {CreateUserRequest, CreateUserResponse, UserResponse} from "../DTO/user";
 import {GetPatikaResponse} from "../DTO/patika";
 import {tap} from "rxjs/operators";
+import {AuthService} from "./auth.service";
+import {HttpService} from "./http.service";
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +13,15 @@ import {tap} from "rxjs/operators";
 export class UserService {
   private baseUrl = 'http://localhost:8080/user';
   private findbyid: string = "/findById";
-  constructor(private http: HttpClient) { }
-  createUser(request: CreateUserRequest): Observable<CreateUserResponse> {
-    return this.http.post<CreateUserResponse>(`${this.baseUrl+"create"}`, request);
+
+  constructor(private http: HttpService, private auth: AuthService, private httpClient: HttpClient ) {
   }
- getUser(id: string): Observable<UserResponse> {
-    return this.http.get<UserResponse>(`${this.baseUrl+this.findbyid}/${id}`);
+
+  createUser(request: CreateUserRequest): Observable<CreateUserResponse> {
+    return this.http.POST<CreateUserResponse>(`${this.baseUrl + "create"}`, request);
+  }
+
+  public  getUser(id: string): Observable<UserResponse> {
+    return this.httpClient.get<UserResponse>(`${this.baseUrl + this.findbyid}/`+id);
   }
 }

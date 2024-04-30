@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {RegisterComponent} from "../../register/register.component";
 import {NgClass} from "@angular/common";
 import {RouterLink} from "@angular/router";
@@ -20,21 +20,25 @@ import {UserService} from "../../service/user.service";
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-authResponse: AuthenticationResponse | undefined;
-authUserRequest: authUserRequest = {
+  authResponse: AuthenticationResponse | undefined;
+  authUserRequest: authUserRequest = {
     email: '',
     password: ''
   };
-isTokenValid(){
+
+  isTokenValid() {
     return this.authResponse?.access_token != null;
   }
+
   userId: string = "";
-user: UserResponse ={
+  user: UserResponse = {
     id: "",
     name: "",
     email: ""
-};
-  constructor(private authService: AuthService, private userService:UserService) { }
+  };
+
+  constructor(private authService: AuthService, private userService: UserService) {
+  }
 
   ngOnInit(): void {
 
@@ -44,15 +48,13 @@ user: UserResponse ={
     this.authService.authUser(this.authUserRequest).subscribe(
       (response: AuthenticationResponse) => {
         this.authResponse = response;
-        localStorage.setItem("token",response.access_token)
-        localStorage.setItem("userId",String(response.userResponse.id))
-        localStorage.setItem("refreshToken",response.refresh_token)
 
+        localStorage.setItem("jwtToken", response.access_token)
+        localStorage.setItem("refreshToken", response.refresh_token)
+        localStorage.setItem("userId", String(response.userResponse.id))
+        const currentTimeInSeconds: number = Math.floor(Date.now() / 1000);
 
-// Şu anki zamanı al
-const currentTimeInSeconds: number = Math.floor(Date.now() / 1000);
-
-        this.userId=this.authResponse.userResponse.id;
+        this.userId = this.authResponse.userResponse.id;
 
       },
       error => {
@@ -60,7 +62,6 @@ const currentTimeInSeconds: number = Math.floor(Date.now() / 1000);
       }
     );
   }
-
 
 
 }

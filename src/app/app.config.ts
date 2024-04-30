@@ -1,12 +1,26 @@
-import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import {ApplicationConfig, InjectionToken} from '@angular/core';
+import {provideRouter} from '@angular/router';
 
-import { routes } from './app.routes';
-import {HttpClientModule, provideHttpClient} from "@angular/common/http";
+import {routes} from './app.routes';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClientModule,
+  HttpInterceptor,
+  provideHttpClient,
+  withInterceptors, withInterceptorsFromDi
+} from "@angular/common/http";
+import {CustomInterceptor} from "./interceptor/custom-interceptor";
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideHttpClient() // Add HttpClientModule to providers
+    provideHttpClient(
+      withInterceptorsFromDi(),
+    ),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CustomInterceptor,
+      multi: true,
+    },
   ]
 };

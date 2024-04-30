@@ -19,5 +19,6 @@ export const routes: Routes = [
   {path: "coderspace", component: CoderSpaceComponent},
   {path: "techcareer", component: TechCareerComponent},
   {path: "profile", component: ProfileComponent},
+  {path: "team", component: TeamComponent}
 ];
 

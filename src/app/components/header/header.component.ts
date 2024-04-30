@@ -25,7 +25,7 @@ user: UserResponse ={
     email: ""
 };
 islogin(){
-    if (localStorage.getItem("token")) {
+    if (localStorage.getItem("jwtToken")) {
       // @ts-ignore
       this.userId= localStorage.getItem("userId")
       return true
@@ -34,12 +34,13 @@ islogin(){
     }
 }
 logout() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("clientId")
+    localStorage.clear();
+
 
         this.router.navigate(['/']); // Burada '/' rotanızı kendi rotanıza değiştirin
 
   }
+  // user hala bağlı mı
    constructor( private router: Router,private userService:UserService) { }
   ngOnInit(): void {
   }
