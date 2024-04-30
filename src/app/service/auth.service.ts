@@ -42,7 +42,10 @@ export class AuthService {
     localStorage.setItem("refreshToken", promise["refresh_token"]);
     return {accessToken: localStorage.getItem("access_token"), refreshToken: localStorage.getItem("refresh_token")}
   }
-
+public logout(){
+    localStorage.clear();
+    return this.http.get(this.baseUrl+"logout")
+}
  public tokenHeader = async (): Promise<HttpHeaders> => {
 
     let jwtToken: string = localStorage.getItem("jwtToken")

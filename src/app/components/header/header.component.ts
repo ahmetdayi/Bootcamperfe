@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router, RouterLink} from "@angular/router";
 import {RegisterComponent} from "../../register/register.component";
 import {CoderSpaceComponent} from "../../coder-space/coder-space.component";
@@ -18,31 +18,34 @@ import {UserService} from "../../service/user.service";
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-   userId: string = "";
-user: UserResponse ={
+  userId: string = "";
+  user: UserResponse = {
     id: "",
     name: "",
     email: ""
-};
-islogin(){
+  };
+
+  constructor(private router: Router, private userService: UserService, private authService: AuthService) {
+  }
+
+  ngOnInit(): void {
+  }
+
+
+  islogin() {
     if (localStorage.getItem("jwtToken")) {
       // @ts-ignore
-      this.userId= localStorage.getItem("userId")
+      this.userId = localStorage.getItem("userId")
       return true
     } else {
       return false
     }
-}
-logout() {
-    localStorage.clear();
-
-
-        this.router.navigate(['/']); // Burada '/' rotanızı kendi rotanıza değiştirin
-
   }
-  // user hala bağlı mı
-   constructor( private router: Router,private userService:UserService) { }
-  ngOnInit(): void {
+
+  logout() {
+    localStorage.clear();
+    this.authService.logout()
+    this.router.navigate(['/']); // Burada '/' rotanızı kendi rotanıza değiştirin
   }
 
 

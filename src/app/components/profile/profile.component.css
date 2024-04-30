@@ -1,107 +1,158 @@
-
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url(https://fonts.googleapis.com/css?family=Quicksand:300,400|Lato:400,300|Coda|Open+Sans);
 
 * {
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+.body1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background:  linear-gradient(
+    to bottom,
+    rgba(83, 81, 81, 0.9),
+    rgba(50, 50, 50, 0.9),
+    rgba(23, 23, 23, 0.9),
+    rgba(0, 0, 0, 0.9)
+  );
+  width: 100%;
+  overflow: hidden;
+}
+a {
+  text-decoration: none;
+  color: #a8a0a0;
+}
+.content-profile-page {
+  margin: 1em auto;
+  width: 44.23em;
+
 }
 
-body {
-
-}
-.main-body {
-	font-family: Montserrat, sans-serif;
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-
-	min-height: 100vh;
-	margin: 0;
-}
-h3 {
-	margin: 10px 0;
+.card {
+  background: #b6adad;
+  border-radius: 0.3rem;
+  box-shadow: 3px 3px 3px 7px rgba(251, 115, 0, 0.4);
+  border: .1em solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 1em;
 }
 
-h6 {
-	margin: 5px 0;
-	text-transform: uppercase;
+.profile-user-page .img-user-profile {
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden;
+}
+.profile-user-page .img-user-profile .profile-bgHome {
+  border-bottom: .2em solid #b6adad;
+  width: 44.23em;
+  height: 16em;
+
+}
+.profile-user-page .img-user-profile .avatar {
+  margin: 0 auto;
+  background:#b6adad;
+  width: 7em;
+  height: 7em;
+  padding: 0.25em;
+  border-radius: .4em;
+  margin-top: -10em;
+  box-shadow: 0 0 .1em rgba(0, 0, 0, 0.35);
+}
+.profile-user-page button {
+  position: absolute;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 7em;
+  background: #3498db;
+  border: 1px solid #2487c9;
+  color: #fff;
+  outline: none;
+  border-radius: 0 .6em .6em 0;
+  padding: .80em;
 }
 
-p {
-	font-size: 14px;
-	line-height: 21px;
+.profile-user-page button:hover {
+  background: #51a7e0;
+  transition: background .2s ease-in-out;
+  border: 1px solid #2487c9;
 }
-
-.card-container {
-	background-color: #231E39;
-	border-radius: 5px;
-	box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
-	color: #B3B8CD;
-	padding-top: 30px;
-	position: relative;
-	width: 350px;
-	max-width: 100%;
-	text-align: center;
+.profile-user-page .user-profile-data, .profile-user-page .description-profile {
+  text-align: center;
+  padding: 0 1.5em;
 }
-
-.card-container .pro {
-	color: #231E39;
-	background-color: #FEBB0B;
-	border-radius: 3px;
-	font-size: 14px;
-	font-weight: bold;
-	padding: 3px 7px;
-	position: absolute;
-	top: 30px;
-	left: 30px;
+.profile-user-page .user-profile-data h1 {
+  font-family: "Lato", sans-serif;
+  margin-top: 0.35em;
+  color: #292f33;
+  margin-bottom: 0;
 }
-
-.card-container .round {
-	border: 1px solid #03BFCB;
-	border-radius: 50%;
-	padding: 7px;
+.profile-user-page .user-profile-data p {
+  font-family: "Lato", sans-serif;
+  color: #8899a6;
+  font-size: 1.1em;
+  margin-top: 0;
+  margin-bottom: 0.5em;
 }
-
-button.primary {
-	background-color: #03BFCB;
-	border: 1px solid #03BFCB;
-	border-radius: 3px;
-	color: #231E39;
-	font-family: Montserrat, sans-serif;
-	font-weight: 500;
-	padding: 10px 25px;
+.profile-user-page .description-profile {
+  color: #111;
+  font-size: 0.98em;
 }
+.profile-user-page .data-user {
+  font-family: "Quicksand", sans-serif;
+  margin-bottom: 0;
+  cursor: pointer;
+  padding: 0;
+  list-style: none;
+  display: table;
+  width: 100.15%;
 
-button.primary.ghost {
-	background-color: transparent;
-	color: #02899C;
 }
-
-.skills {
-	background-color: #1F1A36;
-	text-align: left;
-	padding: 15px;
-	margin-top: 30px;
+.profile-user-page .data-user li {
+  margin: 0;
+  padding: 0;
+  width: 33.33334%;
+  display: table-cell;
+  text-align: center;
+  border-left: 0.1em solid transparent;
 }
-
-.skills ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
+.profile-user-page .data-user li:first-child {
+  border-left: 0;
 }
-
-.skills ul li {
-
-	border-radius: 2px;
-	display: inline-block;
-	font-size: 12px;
-	margin: 0 7px 7px 0;
-	padding: 7px;
+.profile-user-page .data-user li:first-child a {
+  border-bottom-left-radius: 0.3rem;
 }
-
-
-
-
-
-
+.profile-user-page .data-user li:last-child a {
+  border-bottom-right-radius: 0.3rem;
+}
+.profile-user-page .data-user li a, .profile-user-page .data-user li strong {
+  display: block;
+}
+.profile-user-page .data-user li a {
+  background-color: #b6adad;
+  border-top: 1px solid #b6adad;
+  border-bottom: .2em solid #b6adad;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4),0 1px 1px rgba(255,255,255,0.4);
+  padding: .93em 0;
+  color: #292f33;
+}
+.profile-user-page .data-user li a strong, .profile-user-page .data-user li a span {
+  font-weight: 600;
+  line-height: 1;
+}
+.profile-user-page .data-user li a strong {
+  font-size: 2em;
+}
+.profile-user-page .data-user li a span {
+  color: #292f33;
+}
+.profile-user-page .data-user li a:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-bottom: .2em solid #292f33;
+  color: #292f33;
+}
+.profile-user-page .data-user li a:hover span {
+  color: #292f33;
+}
