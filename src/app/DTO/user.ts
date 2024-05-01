@@ -16,6 +16,7 @@ export interface UserResponse {
     id: string;
     name: string;
     email: string;
+
 }
 export interface AuthenticationResponse {
     userResponse: UserResponse;

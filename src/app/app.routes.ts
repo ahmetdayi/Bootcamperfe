@@ -12,7 +12,6 @@ import {TeamComponent} from "./team/team.component";
 
 export const routes: Routes = [
   {path: "", component: HomeComponent},
-  {path: "about", component: TeamComponent},
   {path: "login", component: LoginComponent},
   {path: "register", component: RegisterComponent},
   {path: "patika", component: PatikaComponent},
