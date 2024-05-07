@@ -1,8 +1,6 @@
 import {Component} from '@angular/core';
 import {UserResponse} from "../../DTO/user";
 import {UserService} from "../../service/user.service";
-import {AuthService} from "../../service/auth.service";
-import {TeamComponent} from "../../team/team.component";
 import {UserBootcampService} from "../../service/user-bootcamp.service";
 import {GetPatikaResponse} from "../../DTO/patika";
 import {GetCoderSpaceResponse} from "../../DTO/coder";
@@ -12,19 +10,15 @@ import {GetTechCareerResponse} from "../../DTO/tech-career";
   selector: 'app-profile',
   standalone: true,
   imports: [
-    TeamComponent
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
-  emptyList: any[] = [];
   patikaList: GetPatikaResponse[] = [];
   coderList: GetCoderSpaceResponse[] = [];
   Techlist: GetTechCareerResponse[] = [];
   Counter: number = 0;
-
-
   user: UserResponse = {
     id: "",
     name: "",
@@ -32,8 +26,7 @@ export class ProfileComponent {
   };
   userId: string = "";
 
-
-  constructor(private userService: UserService, private authService: AuthService, private userBootcampService: UserBootcampService) {
+  constructor(private userService: UserService, private userBootcampService: UserBootcampService) {
   }
 
   ngOnInit(): void {
@@ -49,7 +42,7 @@ export class ProfileComponent {
     this.userBootcampService.getPatikasByUserId(this.userId).subscribe(
       data => {
         this.patikaList = data;
-        this.Counter= this.patikaList.length+this.Counter;
+        this.Counter = this.patikaList.length + this.Counter;
         console.log(this.patikaList);
       },
       error => {
@@ -63,7 +56,7 @@ export class ProfileComponent {
     this.userBootcampService.getCoderByUserId(this.userId).subscribe(
       data => {
         this.coderList = data;
-        this.Counter= this.coderList.length+this.Counter;
+        this.Counter = this.coderList.length + this.Counter;
         console.log(this.patikaList);
       },
       error => {
@@ -77,7 +70,7 @@ export class ProfileComponent {
     this.userBootcampService.getTechByUserId(this.userId).subscribe(
       data => {
         this.Techlist = data;
-        this.Counter= this.Techlist.length+this.Counter;
+        this.Counter = this.Techlist.length + this.Counter;
         console.log(this.patikaList);
       },
       error => {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {PatikaService} from "../service/patika.service";
 import {GetPatikaResponse} from "../DTO/patika";
 import {GetCoderSpaceResponse} from "../DTO/coder";
@@ -15,11 +15,15 @@ import {NgForOf} from "@angular/common";
   styleUrl: './coder-space.component.css'
 })
 export class CoderSpaceComponent {
-   coderList: GetCoderSpaceResponse[] = [];
- constructor(private service: CoderService) { }
+  coderList: GetCoderSpaceResponse[] = [];
+
+  constructor(private service: CoderService) {
+  }
+
   ngOnInit(): void {
     this.getcoders();
   }
+
   private getcoders() {
     this.service.getCoders().subscribe(
       data => {

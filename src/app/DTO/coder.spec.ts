@@ -1,3 +1,4 @@
+// @ts-ignore
 import { Coder } from './coder';
 
 describe('Coder', () => {

@@ -14,14 +14,14 @@ export class UserService {
   private baseUrl = 'http://localhost:8080/user';
   private findbyid: string = "/findById";
 
-  constructor(private http: HttpService, private auth: AuthService, private httpClient: HttpClient ) {
+  constructor(private http: HttpService, private auth: AuthService, private httpClient: HttpClient) {
   }
 
   createUser(request: CreateUserRequest): Observable<CreateUserResponse> {
     return this.http.POST<CreateUserResponse>(`${this.baseUrl + "create"}`, request);
   }
 
-  public  getUser(id: string): Observable<UserResponse> {
-    return this.http.GET<UserResponse>(`${this.baseUrl + this.findbyid}/`+id);
+  public getUser(id: string): Observable<UserResponse> {
+    return this.http.GET<UserResponse>(`${this.baseUrl + this.findbyid}/` + id);
   }
 }

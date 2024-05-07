@@ -1,4 +1,3 @@
-
 <div class="body1">
   <section class="blog">
     <h2>Your Ultimate Beach Escape!</h2>
@@ -11,64 +10,40 @@
     </p>
   </section>
   <div class="center " style="margin-top: 100px">
-  @for (coder of coderList; track coder.name){
-        <div  class="card">
-      <div class="additional">
-        <div class="user-card">
-          <div class="level center">
-            Level 13
+    @for (coder of coderList; track coder.name) {
+      <div class="card">
+        <div class="additional">
+          <div class="user-card">
+            <div class="level center">
+              Level 13
+            </div>
+            <div class="points center">
+              5,312 Points
+            </div>
+            <img width="150" height="160"
+                 src="./assets/logo-mor-white-removebg-preview.png" role="img"
+                 aria-labelledby="title desc" class="svgcenter" alt=""/>
           </div>
-          <div class="points center">
-            5,312 Points
+          <div class="more-info">
+
+            <h2 class="field-name">{{ coder.name }}</h2>
+            <div class="coords">
+
+              <span>{{ coder.deadline }}</span>
+            </div>
+            <div class="coords-type">
+
+              <span>{{ coder.eventType }}</span>
+            </div>
+
+            </div>
           </div>
-          <img width="150" height="160"
-               src="./assets/logo-mor-white-removebg-preview.png" role="img"
+        <div class="general">
+          <img style="width: 500px; max-height: 100%;"
+               src="{{coder.imgUrl}}" role="img"
                aria-labelledby="title desc" class="svgcenter" alt=""/>
         </div>
-        <div class="more-info">
-          <h2 class="field-name">{{coder.name}}</h2>
-          <div class="coords">
-
-            <span  >{{coder.deadline}}</span>
-          </div>
-          <div class="coords-type">
-
-            <span>{{ coder.eventType }}</span>
-          </div>
-          <div class="stats">
-            <div>
-              <div class="title">Awards</div>
-              <i class="fa fa-trophy"></i>
-              <div class="value">2</div>
-            </div>
-            <div>
-              <div class="title">Matches</div>
-              <i class="fa fa-gamepad"></i>
-              <div class="value">27</div>
-            </div>
-            <div>
-              <div class="title">Pals</div>
-              <i class="fa fa-group"></i>
-              <div class="value">123</div>
-            </div>
-            <div>
-              <div class="title">Coffee</div>
-              <i class="fa fa-coffee"></i>
-              <div class="value infinity">∞</div>
-            </div>
-          </div>
-        </div>
       </div>
-      <div class="general">
-        <img style="width: 500px; max-height: 100%;"
-             src="{{coder.imgUrl}}" role="img"
-             aria-labelledby="title desc" class="svgcenter" alt=""/>
-
-      </div>
-    </div>
-
-
-  }
-
+    }
   </div>
 </div>

@@ -1,3 +1,4 @@
+// @ts-ignore
 import { Patika } from './patika';
 
 describe('Patika', () => {

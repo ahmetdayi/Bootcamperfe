@@ -69,7 +69,6 @@
 }
 
 .card {
-  display: flex;
   width: 650px;
   height: 250px;
   background-color: #fff;

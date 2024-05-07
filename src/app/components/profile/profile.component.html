@@ -1,12 +1,8 @@
 @if (user) {
-
   <div class="profile-page sidebar-collapse">
-
-
     <div class="wrapper">
-      <div class="page-header clear-filter" >
-        <div class="page-header-image" data-parallax="true"
-             >
+      <div class="page-header clear-filter">
+        <div class="page-header-image" data-parallax="true">
         </div>
         <div class="container">
           <div class="photo-container">
@@ -14,7 +10,6 @@
               src="https://images.unsplash.com/photo-1549669944-ca3e8b576248?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
               alt="">
           </div>
-
           <h3 class="title">{{ user.email }} </h3>
           <p class="category">{{ user.name }}</p>
           <div class="content">
@@ -41,21 +36,20 @@
                         </a>
                       </div>
                     }
-                      @for (patika of coderList; track patika.name) {
-                        <div class="col-md-4 p-3 ">
-                          <a href="{{ patika.link }}">
-                            <img src="{{ patika.imgUrl}}" alt="" class="img-raised">
-                          </a>
-                        </div>
-                      }
-
-                        @for (patika of Techlist; track patika.name) {
-                          <div class="col-md-4 p-3 ">
-                            <a href="{{ patika.link }}">
-                              <img src="{{ patika.imgUrl}}" alt="" class="img-raised">
-                            </a>
-                          </div>
-                        }
+                    @for (patika of coderList; track patika.name) {
+                      <div class="col-md-4 p-3 ">
+                        <a href="{{ patika.link }}">
+                          <img src="{{ patika.imgUrl}}" alt="" class="img-raised">
+                        </a>
+                      </div>
+                    }
+                    @for (patika of Techlist; track patika.name) {
+                      <div class="col-md-4 p-3 ">
+                        <a href="{{ patika.link }}">
+                          <img src="{{ patika.imgUrl}}" alt="" class="img-raised">
+                        </a>
+                      </div>
+                    }
                   </div>
                 </div>
               </div>
@@ -63,10 +57,7 @@
           </div>
         </div>
       </div>
-
     </div>
-
-
   </div>
 
 }

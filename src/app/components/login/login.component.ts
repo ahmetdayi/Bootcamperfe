@@ -21,16 +21,12 @@ import {UserService} from "../../service/user.service";
 })
 export class LoginComponent {
   authResponse: AuthenticationResponse | undefined;
+  userId: string = "";
   authUserRequest: authUserRequest = {
     email: '',
     password: ''
   };
 
-  isTokenValid() {
-    return this.authResponse?.access_token != null;
-  }
-
-  userId: string = "";
   user: UserResponse = {
     id: "",
     name: "",
@@ -39,11 +35,6 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private userService: UserService) {
   }
-
-  ngOnInit(): void {
-
-  }
-
   getToken(): void {
     this.authService.authUser(this.authUserRequest).subscribe(
       (response: AuthenticationResponse) => {

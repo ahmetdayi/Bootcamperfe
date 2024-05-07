@@ -15,7 +15,8 @@ import {CommonModule} from "@angular/common";
 export class PatikaComponent implements OnInit {
   patikaList: GetPatikaResponse[] = [];
 
-  constructor(private service: PatikaService) { }
+  constructor(private service: PatikaService) {
+  }
 
   ngOnInit(): void {
     this.getPatikas();

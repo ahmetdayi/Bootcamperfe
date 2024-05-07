@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {UserService} from "../service/user.service";
 import {FormsModule} from "@angular/forms";
 import {CreateUserRequest} from "../DTO/user";
@@ -15,7 +15,7 @@ import {RouterLink} from "@angular/router";
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-createUserRequest: CreateUserRequest = {
+  createUserRequest: CreateUserRequest = {
     name: '',
     email: '',
     password: ''
@@ -24,7 +24,8 @@ createUserRequest: CreateUserRequest = {
   showSuccess: boolean = false; // Başarı durumunu göstermek için değişken
   showError: boolean = false; // Hata durumunu göstermek için değişken
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit(): void {
   }

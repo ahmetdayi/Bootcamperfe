@@ -28,10 +28,6 @@ export class HeaderComponent {
   constructor(private router: Router, private userService: UserService, private authService: AuthService) {
   }
 
-  ngOnInit(): void {
-  }
-
-
   islogin() {
     if (localStorage.getItem("jwtToken")) {
       // @ts-ignore
@@ -45,8 +41,6 @@ export class HeaderComponent {
   logout() {
     localStorage.clear();
     this.authService.logout()
-    this.router.navigate(['/']); // Burada '/' rotanızı kendi rotanıza değiştirin
+    this.router.navigate(['/']);
   }
-
-
 }

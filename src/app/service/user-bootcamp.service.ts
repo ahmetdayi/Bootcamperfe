@@ -15,9 +15,10 @@ import {GetCoderSpaceResponse} from "../DTO/coder";
 })
 export class UserBootcampService {
   baseUrl = 'http://localhost:8080/userbootcamp/';
-  Coder:string = "findCoderspaceByUserId";
-  Patika:string = "findPatikasByUserId";
-  Tech:string = "findTechcareerByUserId";
+  Coder: string = "findCoderspaceByUserId";
+  Patika: string = "findPatikasByUserId";
+  Tech: string = "findTechcareerByUserId";
+
   constructor(private http: HttpService, private auth: AuthService, private httpClient: HttpClient) {
   }
 
