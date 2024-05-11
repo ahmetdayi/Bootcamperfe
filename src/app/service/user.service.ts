@@ -18,7 +18,7 @@ export class UserService {
   }
 
   createUser(request: CreateUserRequest): Observable<CreateUserResponse> {
-    return this.http.POST<CreateUserResponse>(`${this.baseUrl + "create"}`, request);
+    return this.http.POST<CreateUserResponse>(`${this.baseUrl + "/create"}`, request);
   }
 
   public getUser(id: string): Observable<UserResponse> {
