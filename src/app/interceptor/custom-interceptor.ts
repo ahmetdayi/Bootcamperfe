@@ -19,7 +19,10 @@ export class CustomInterceptor implements HttpInterceptor {
     }
     if (req.url.endsWith("/api/v1/auth/authenticate") ||
       req.url.endsWith("/api/v1/auth/refresh-token") ||
-      req.url.endsWith("/api/v1/auth/logout")) {
+      req.url.endsWith("/api/v1/auth/logout") ||
+      req.url.includes("/patika") ||
+      req.url.includes("/coderspace") ||
+      req.url.includes("/techcareer")) {
       return next.handle(req);
     } else {
       const localToken = localStorage.getItem("jwtToken");
@@ -27,4 +30,5 @@ export class CustomInterceptor implements HttpInterceptor {
       return next.handle(req);
     }
   }
+
 }

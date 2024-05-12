@@ -11,6 +11,13 @@
       Ücretsiz bootcamp programlarımıza başvurabilirsin!
     </p>
   </section>
+  @if (isLoading) {
+    <div class="flex justify-center  h-screen">
+      <div class="animate-spin rounded-full h-64 w-64 border-t-2 border-b-2 border-white"></div>
+    </div>
+
+
+  } @else {
   <div class="center " style="margin-top: 100px">
 
     <div *ngFor=" let tech of Techlist" class="card">
@@ -20,7 +27,7 @@
                src="/assets/img.png" role="img"
                aria-labelledby="title desc" class="svgcenter" alt=""/>
         </div>
-        <a target=”_blank” href="{{ tech.link }}">
+          <a target=”_blank” (click)="openLink(tech.id)" href="{{ tech.link }}">
           <div class="more-info">
             <h2 class="field-name">{{ tech.name }}</h2>
             <div class="coords">
@@ -41,5 +48,5 @@
       </div>
     </div>
 
-  </div>
+  </div>}
 </div>

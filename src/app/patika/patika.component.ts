@@ -18,19 +18,22 @@ import {Router} from "@angular/router";
   styleUrls: ['./patika.component.css'] // Use styleUrls instead of styleUrl
 })
 export class PatikaComponent implements OnInit {
-  createBootcampUserRequest:UserBootcampRequest = {
+  createBootcampUserRequest: UserBootcampRequest = {
     userId: '',
     baseBootcampId: ''
   }
   patikaList: GetPatikaResponse[] = [];
   isLoading: boolean = true; // Yükleme durumu izleyici
 
-  constructor(private router: Router,private service: PatikaService, private bootcampUserService:UserBootcampService) {
+  constructor(private router: Router, private service: PatikaService, private bootcampUserService: UserBootcampService) {
   }
 
   ngOnInit(): void {
     this.getPatikas();
+
+
   }
+
   openLink(patikaId: string) {
     Swal.fire({
       title: 'Bu bootcampe katıldınız mı ?',
@@ -40,15 +43,16 @@ export class PatikaComponent implements OnInit {
       cancelButtonText: 'Hayır'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.createBootcampUserRequest.baseBootcampId=patikaId ;
+        this.createBootcampUserRequest.baseBootcampId = patikaId;
 
         this.createUserBootcamp();
-                this.router.navigate(['/patika']); // Örnek patika yoluna yönlendirme yapılabilir
+        this.router.navigate(['/patika']); // Örnek patika yoluna yönlendirme yapılabilir
       }
     });
   }
-createUserBootcamp(){
-            this.createBootcampUserRequest.userId= localStorage.getItem('userId');
+
+  createUserBootcamp() {
+    this.createBootcampUserRequest.userId = localStorage.getItem('userId');
 
     this.bootcampUserService.createUserBootcamp(this.createBootcampUserRequest).subscribe(
       error => {
@@ -56,13 +60,24 @@ createUserBootcamp(){
       }
     );
 
-}
+  }
 
   private getPatikas() {
+
     this.service.getPatikas().subscribe(
       data => {
+
         this.patikaList = data;
-        this.isLoading = false; // Yükleme tamamlandı
+        if (this.patikaList.length == 0) {
+          {
+            this.isLoading = false;
+          }
+        } else {
+          setTimeout(() => {
+            this.isLoading = false;
+          }, 1500);
+        }
+
         console.log(this.patikaList);
       },
       error => {

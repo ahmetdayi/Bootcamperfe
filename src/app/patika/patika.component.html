@@ -7,57 +7,58 @@
       successfully, gain priority access to our programs, and get connected to our partner employers for job placement.
     </p>
   </section>
-  <div class="center " style="margin-top: 6.25rem">
-    @for (patika of patikaList; track patika.name){
+  @if (isLoading) {
+    <div class="flex justify-center  h-screen">
+      <div class="animate-spin rounded-full h-64 w-64 border-t-2 border-b-2 border-white"></div>
+    </div>
 
 
-    <div  class="card">
+  } @else {
+    <div class="center " style="margin-top: 6.25rem">
+      @for (patika of patikaList; track patika.name) {
 
-      <div class="additional">
-        <div class="user-card">
-          <img width="150" height="160"
-               src="./assets/%5Bremoval.ai%5D_b3a91aa6-80b5-466d-95fd-81517b25f86d-dgjguipj_400x400.png" role="img"
-               aria-labelledby="title desc" class="svgcenter" alt=""/>
-        </div>
-        @if (isLoading) {
-          <div class="relative">
-            <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
+
+        <div class="card">
+
+          <div class="additional">
+            <div class="user-card">
+              <img width="150" height="160"
+                   src="./assets/%5Bremoval.ai%5D_b3a91aa6-80b5-466d-95fd-81517b25f86d-dgjguipj_400x400.png" role="img"
+                   aria-labelledby="title desc" class="svgcenter" alt=""/>
+            </div>
+
+
+            <a target=”_blank” (click)="openLink(patika.id)" href="{{ patika.link }}">
+              <div class="more-info">
+                <!--          todo login logout veya register gibi yerlerde kullaniciyi bilgilendirilecek toastrlar olacak -->
+                <!--          todo kullanici register olacagi zaman kullaniciyi bilgilendirmek amaciyla sifre uzunlugu veya eposta hakkinda bilgiler verilecek-->
+                <h2 class="field-name">{{ patika.name }}</h2>
+                <div class="coords">
+                  <span>Group Name</span>
+                  <span>{{ patika.deadline }}</span>
+                </div>
+                <div class="coords">
+                  <span>Position/Role</span>
+                  <span>{{ patika.location }}</span>
+                </div>
+              </div>
+            </a>
 
           </div>
-        } @else {
+          <div class="general">
 
-          <a target=”_blank” (click)="openLink(patika.id)" href="{{ patika.link }}">
-            <div class="more-info">
-              <!--          todo login logout veya register gibi yerlerde kullaniciyi bilgilendirilecek toastrlar olacak -->
-              <!--          todo kullanici register olacagi zaman kullaniciyi bilgilendirmek amaciyla sifre uzunlugu veya eposta hakkinda bilgiler verilecek-->
-              <!--          todo bootcampler zor yukleniyor onlar yuklenirken donecek bir loader eklenebilir-->
-              <!--todo kullanici bootcampe tikladiginda en alta yapisik bir model acilacak ve kullaniciya kayit olup olmadi sorulacak toastr ile yapilabilir belki-->
-              <h2 class="field-name">{{ patika.name }}</h2>
-              <div class="coords">
-                <span>Group Name</span>
-                <span>{{ patika.deadline }}</span>
-              </div>
-              <div class="coords">
-                <span>Position/Role</span>
-                <span>{{ patika.location }}</span>
-              </div>
-            </div>
-          </a>
-        }
-      </div>
-      <div class="general">
+            <img
 
-        <img
+              src="{{patika.imgUrl}}" role="img"
+              aria-labelledby="title desc" class="svgcenter" alt=""/>
 
-          src="{{patika.imgUrl}}" role="img"
-          aria-labelledby="title desc" class="svgcenter" alt=""/>
+          </div>
 
-      </div>
+
+        </div>
+      }
 
 
     </div>
-
-    }
-
-  </div>
+  }
 </div>
