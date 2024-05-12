@@ -5,21 +5,25 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 30px 100px;
+  padding: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 100;
 }
+#header.scrolled {
+  opacity: 0;
+  padding: 0.5rem; /* Kaydırıldığında iç kenar boşluğu */
+}
 
-@media (max-width: 1300px) {
+@media (max-width: 75rem) {
   header {
-    padding: 30px 50px;
+    padding: 1.5rem 2.5rem;
   }}
 
-@media (max-width: 600px) {
+@media (max-width: 30rem) {
   header {
-    padding: 30px 10px;
+    padding: 1.5rem 0.5rem;
   }}
 
 * {
@@ -54,7 +58,8 @@ h3 {
 }
 
 .navigation {
-  top: 0;
+
+
   display: flex;
   font-size: xxx-large;
   justify-content: center;
@@ -63,18 +68,22 @@ h3 {
 
 .navigation li {
   list-style: none;
-  margin-left: 20px;
+  margin-left: 1rem;
 }
 
 .navigation li a {
   text-decoration: none;
-  padding: 6px 15px;
+  padding: 0.03rem 0.75rem;
   color: white;
-  border-radius: 20px;
+  border-radius: 1rem;
   font-size: clamp(0.9rem, 6vw, 1rem);
 }
 
 .navigation li a:hover,
+.router-link-active {
+  background: #112434;
+  color: #fff;
+}
 .navigation li a.active {
   background: #112434;
   color: #fff;

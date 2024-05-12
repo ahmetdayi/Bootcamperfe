@@ -1,10 +1,11 @@
-import {Component} from '@angular/core';
-import {Router, RouterLink} from "@angular/router";
+import {Component, HostListener} from '@angular/core';
+import {Router, RouterLink, RouterLinkActive} from "@angular/router";
 import {RegisterComponent} from "../../register/register.component";
 import {CoderSpaceComponent} from "../../coder-space/coder-space.component";
 import {AuthenticationResponse, UserResponse} from "../../DTO/user";
 import {AuthService} from "../../service/auth.service";
 import {UserService} from "../../service/user.service";
+import {NgClass} from "@angular/common";
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,9 @@ import {UserService} from "../../service/user.service";
   imports: [
     RouterLink,
     RegisterComponent,
-    CoderSpaceComponent
+    CoderSpaceComponent,
+    RouterLinkActive,
+    NgClass
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
@@ -42,5 +45,11 @@ export class HeaderComponent {
     localStorage.clear();
     this.authService.logout()
     this.router.navigate(['/']);
+  }
+   isScrolled: boolean = false;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.isScrolled = window.scrollY > 0;
   }
 }

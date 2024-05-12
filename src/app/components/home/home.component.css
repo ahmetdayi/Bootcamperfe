@@ -1,14 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Mooli&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
 
 h1, h2, h3 {
   font-family: "Comfortaa", cursive;
@@ -37,7 +28,7 @@ h1, h2, h3 {
 .blog h2 {
   font-size: clamp(2rem, 6vw, 3rem);
   color: white;
-  margin: 60px 0 40px;
+  margin: 1.5rem 0 1rem;
   text-align: center;
 }
 
@@ -45,7 +36,7 @@ h1, h2, h3 {
   font-size: clamp(1rem, 6vw, 1.3rem);
   color: white;
   font-weight: 400;
-  margin-bottom: 30px;
+  margin-bottom: 1rem;
   text-align: center;
   line-height: 1.5;
 }
@@ -55,7 +46,7 @@ h1, h2, h3 {
   align-items: center;
   justify-items: center;
   grid-template-columns: 1fr;
-  gap: 40px;
+  gap: 10%;
   padding: 2rem 4rem; /* Önerilen güncellenmiş padding değerleri */
   background: linear-gradient(
     to bottom,
@@ -74,26 +65,26 @@ h1, h2, h3 {
   flex-direction: column;
   align-items: center;
   width: 100%; /* Kartın maksimum genişliğini ekran boyutuna göre ayarlar */
-  max-width: 450px; /* Kartın maksimum genişliğini 450 piksel olarak sınırlar */
+  max-width: 33%; /* Kartın maksimum genişliğini 450 piksel olarak sınırlar */
   background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hafif bir gölge kullanır */
-  border-radius: 20px;
+  box-shadow: 0 0.1rem 0.05rem rgba(0, 0, 0, 0.1); /* Hafif bir gölge kullanır */
+  border-radius: 1rem;
   padding: 3% 5%; /* Yüzdelik veya em gibi göreceli birimler kullanır */
 }
 
 .card img {
   display: block;
   width: 100%;
-  max-width: 250px;
+
   aspect-ratio: 1/1;
-  margin: 20px auto; /* Ortalamak için margin kullanır */
+  margin: 1rem auto; /* Ortalamak için margin kullanır */
 }
 
 
 .card h3 {
   font-size: 1.4rem;
   font-weight: 700;
-  margin: 20px 0 20px;
+  margin: 1rem 0 1rem;
   text-align: center;
   color: #000;
 }
@@ -105,11 +96,14 @@ h1, h2, h3 {
   color: #000;
 }
 
+.overlay-patika .p {
+  max-width: 100%;
+}
+
 .overlay-patika {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -122,7 +116,7 @@ h1, h2, h3 {
     rgba(170, 78, 5, 0.9),
     rgba(165, 74, 6, 0.9)
   );
-  border-radius: 20px;
+  border-radius: 1rem;
   list-style: none;
   z-index: 1;
   opacity: 0;
@@ -163,12 +157,17 @@ h1, h2, h3 {
     rgba(77, 7, 133, 0.9),
     rgba(51, 10, 96, 0.9)
   );
-  border-radius: 20px;
+  border-radius: 1rem;
   list-style: none;
   z-index: 1;
   opacity: 0;
   padding: 2% 4%; /* Yüzdelik veya em gibi göreceli birimler kullanabiliriz */
   transition: all 0.4s ease-in-out;
+}
+
+.overlay-techcareer .p {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .overlay-techcareer {
@@ -188,7 +187,7 @@ h1, h2, h3 {
     rgba(33, 122, 81, 0.9),
     rgba(28, 76, 8, 0.9)
   );
-  border-radius: 20px;
+  border-radius: 1rem;
   list-style: none;
   z-index: 1;
   opacity: 0;
@@ -206,7 +205,7 @@ h1, h2, h3 {
   cursor: default;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 15rem) {
 
   #title {
     top: 16%;
@@ -217,21 +216,18 @@ h1, h2, h3 {
   }
 
   .blog {
-    padding: 10% 12% 2%; /* Yüzdelik veya em gibi göreceli birimler kullanarak daha esnek bir yapı oluşturulabilir */
+
+    padding: 20% 12% 2%; /* Yüzdelik veya em gibi göreceli birimler kullanarak daha esnek bir yapı oluşturulabilir */
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 9rem) {
   .navigation li {
-    margin-left: 10px;
+    margin-left: 0.5rem;
   }
 
   #title {
     top: 20%;
-  }
-
-  .blog {
-    padding: 9% 10% 2%;
   }
 
   .cards {
@@ -240,13 +236,13 @@ h1, h2, h3 {
   }
 
   .card h3 {
-    margin: 20px 0 20px;
+    margin: 1rem 0 1rem;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 6rem) {
   .navigation li {
-    margin-left: 5px;
+    margin-left: 0.25rem;
   }
 
 
@@ -255,7 +251,7 @@ h1, h2, h3 {
   }
 
   .blog {
-    padding: 90px 40px 20px;
+    margin: 20rem;
   }
 
   .blog p {
@@ -263,7 +259,7 @@ h1, h2, h3 {
   }
 
   .card {
-    width: min(100%, 450px);
+    width: min(100%, 4.5rem);
   }
 
   .card h3 {

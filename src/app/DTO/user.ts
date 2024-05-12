@@ -23,3 +23,7 @@ export interface AuthenticationResponse {
     access_token: string;
     refresh_token: string;
 }
+export interface UserBootcampRequest {
+  userId: string;
+  baseBootcampId: string;
+}

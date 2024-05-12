@@ -3,7 +3,7 @@ import {HttpService} from "./http.service";
 import {AuthService} from "./auth.service";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {UserResponse} from "../DTO/user";
+import {CreateUserRequest, CreateUserResponse, UserBootcampRequest, UserResponse} from "../DTO/user";
 import {GetPatikaResponse} from "../DTO/patika";
 import {List} from "postcss/lib/list";
 import {tap} from "rxjs/operators";
@@ -32,6 +32,10 @@ export class UserBootcampService {
     return this.http.GET<GetCoderSpaceResponse[]>(`${this.baseUrl + this.Coder}/` + id).pipe(
       tap(response => console.log('Raw API response:', response))
     );
+  }
+   createUserBootcamp(request: UserBootcampRequest): Observable<void> {
+    console.log(request)
+    return  this.http.POST<void>(`${this.baseUrl + "create"}`, request);
   }
 
   public getTechByUserId(id: string): Observable<GetTechCareerResponse[]> {

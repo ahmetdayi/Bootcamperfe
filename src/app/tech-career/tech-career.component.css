@@ -90,12 +90,12 @@
   width: 150px;
   height: 100%;
   background: linear-gradient(
-  to bottom,
-  rgb(253, 253, 253) 0%,
-  rgb(220, 220, 220) 25%,
-  rgb(190, 190, 190) 50%,
-  rgb(150, 150, 150) 100%
-);
+    to bottom,
+    rgb(253, 253, 253) 0%,
+    rgb(220, 220, 220) 25%,
+    rgb(190, 190, 190) 50%,
+    rgb(150, 150, 150) 100%
+  );
 
   transition: width 0.4s;
   overflow: hidden;
@@ -167,24 +167,24 @@
 .card.green .additional .more-info h1 {
   color: #224C36;
 }
-.coords-type{
-   margin: 0.5rem;
+
+.coords-type {
+  padding: 0.5rem;
 
   position: relative;
 
-  color: #fff;
+  color: black;
   font-size: 1.25rem;
+  bottom: auto;
   text-align: center;
 }
+
 .card .additional .coords {
   text-align: center;
-  margin: 0.5rem;
-
   position: relative;
-
-  color: #fff;
+  padding: 1rem;
+  color: black;
   font-size: 1.25rem;
-
 }
 
 
@@ -271,7 +271,8 @@
 }
 
 .field-name {
- margin-top: 0.25rem;
+  font-size: xx-large;
+  margin-top: 0.25rem;
   display: -webkit-box;
   text-align: center;
   -webkit-box-orient: vertical;

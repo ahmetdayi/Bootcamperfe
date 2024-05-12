@@ -1,13 +1,14 @@
-
 <div class="body1">
   <section class="blog">
-    <h2>Your Ultimate Beach Escape!</h2>
-    <p>Are you ready to embark on a beach adventure like no other?</p>
+    <h2>TechCareer</h2>
+    <p>Welcome to future</p>
     <p>
-      Look no further than Sunset Paradise, the jewel in the crown of our
-      beachfront paradise collection! With pristine shores, crystal-clear
-      waters, and a plethora of activities to indulge in, Sunset Paradise is
-      your ticket to sun-soaked bliss. 🏖️
+      Teknoloji alanında kariyer hedefliyorsan sene içerisinde mezun olacak, yeni mezun veya son bir kaç sene içerisinde
+      mezun olmuş ve tam zamanlı bir işte çalışmıyorsan,
+      İlgi alanın yazılım teknolojileri, veri bilimi, ürün yönetimi gibi bilişim alanındaki konularda olup kariyer
+      patikasını teknoloji odaklı değiştirmek istiyorsan,
+      Yazılım kariyerine yeni başlamış ancak güncel teknolojiler ile daha da gelişmek istiyorsan,
+      Ücretsiz bootcamp programlarımıza başvurabilirsin!
     </p>
   </section>
   <div class="center " style="margin-top: 100px">
@@ -15,49 +16,22 @@
     <div *ngFor=" let tech of Techlist" class="card">
       <div class="additional">
         <div class="user-card">
-          <div class="level center">
-            Level 13
-          </div>
-          <div class="points center">
-            5,312 Points
-          </div>
           <img width="100" height="100"
                src="/assets/img.png" role="img"
                aria-labelledby="title desc" class="svgcenter" alt=""/>
         </div>
-        <div class="more-info">
-          <h2 class="field-name">{{tech.name}}</h2>
-          <div class="coords">
+        <a target=”_blank” href="{{ tech.link }}">
+          <div class="more-info">
+            <h2 class="field-name">{{ tech.name }}</h2>
+            <div class="coords">
 
-            <span  >{{tech.deadline}}</span>
-          </div>
-          <div class="coords-type">
-
-            <span>{{ tech.eventType }}</span>
-          </div>
-          <div class="stats">
-            <div>
-              <div class="title">Awards</div>
-              <i class="fa fa-trophy"></i>
-              <div class="value">2</div>
+              <span>{{ tech.deadline }}</span>
             </div>
-            <div>
-              <div class="title">Matches</div>
-              <i class="fa fa-gamepad"></i>
-              <div class="value">27</div>
-            </div>
-            <div>
-              <div class="title">Pals</div>
-              <i class="fa fa-group"></i>
-              <div class="value">123</div>
-            </div>
-            <div>
-              <div class="title">Coffee</div>
-              <i class="fa fa-coffee"></i>
-              <div class="value infinity">∞</div>
+            <div class="coords-type">
+              <span>{{ tech.eventType }}</span>
             </div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="general">
         <img style="width: 500px; max-height: 100%;"
