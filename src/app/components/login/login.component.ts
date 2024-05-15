@@ -1,23 +1,20 @@
-import {Component} from '@angular/core';
-import {RegisterComponent} from "../../register/register.component";
-import {NgClass} from "@angular/common";
-import {RouterLink} from "@angular/router";
-import {AuthService} from "../../service/auth.service";
-import {AuthenticationResponse, authUserRequest, UserResponse} from "../../DTO/user";
-import {FormsModule} from "@angular/forms";
-import {UserService} from "../../service/user.service";
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from "../../service/auth.service";
+import { AuthenticationResponse, authUserRequest, UserResponse } from "../../DTO/user";
+import { FormsModule } from "@angular/forms";
+import { UserService } from "../../service/user.service";
+import Swal from "sweetalert2";
+import {keyframes} from "@angular/animations";
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
-    RegisterComponent,
-    NgClass,
-    RouterLink,
     FormsModule
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   authResponse: AuthenticationResponse | undefined;
@@ -33,8 +30,9 @@ export class LoginComponent {
     email: ""
   };
 
-  constructor(private authService: AuthService, private userService: UserService) {
+  constructor(private authService: AuthService, private userService: UserService, private router: Router) {
   }
+
   getToken(): void {
     this.authService.authUser(this.authUserRequest).subscribe(
       (response: AuthenticationResponse) => {
@@ -45,12 +43,38 @@ export class LoginComponent {
         localStorage.setItem("userId", response.userResponse.id)
         this.userId = this.authResponse.userResponse.id;
 
+        // Redirect to a certain page after successful login
+        this.router.navigate(['']);
+
+        // Show success message
+        this.showSuccess();
       },
       error => {
         console.error('Error fetching user:', error);
+        if (error.status === 401) {
+          this.showAuthError('Invalid email or password!'); // Show error notification for invalid email or password
+        } else {
+          this.showAuthError('Error occurred while logging in!'); // Show general error notification for login error
+        }
       }
     );
   }
 
+  showAuthError(errorMessage: string): void {
+    Swal.fire({
+      title: "Error!",
+      text: errorMessage,
+      icon: "error"
+    });
+  }
 
+  showSuccess(): void {
+    Swal.fire({
+      title: "Success!",
+      text: "Successfully logged in!",
+      icon: "success"
+    });
+  }
+
+  protected readonly keyframes = keyframes;
 }

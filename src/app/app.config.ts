@@ -10,10 +10,15 @@ import {
   withInterceptors, withInterceptorsFromDi
 } from "@angular/common/http";
 import {CustomInterceptor} from "./interceptor/custom-interceptor";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {provideToastr} from "ngx-toastr";
+import {provideAnimations} from "@angular/platform-browser/animations";
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
+     provideAnimations(), // required animations providers
+    provideToastr(), // Toastr providers
     provideHttpClient(
       withInterceptorsFromDi(),
     ),
@@ -22,6 +27,6 @@ export const appConfig: ApplicationConfig = {
       useClass: CustomInterceptor,
       multi: true,
     },
-    provideHttpClient()
+    provideHttpClient(), provideAnimationsAsync()
   ]
 };

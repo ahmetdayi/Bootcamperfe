@@ -18,7 +18,7 @@ export class CustomInterceptor implements HttpInterceptor {
       }
     }
     if (req.url.endsWith("/api/v1/auth/authenticate") ||
-      req.url.endsWith("/api/v1/auth/refresh-token") ||
+      req.url.endsWith("/user/create") ||
       req.url.endsWith("/api/v1/auth/logout") ||
       req.url.includes("/patika") ||
       req.url.includes("/coderspace") ||

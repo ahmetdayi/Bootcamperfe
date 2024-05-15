@@ -14,16 +14,17 @@
     <div class="login">
       <h2>Register</h2>
       <div class="inputBx">
-      <input type="text" id="name" placeholder="Name" name="name" [(ngModel)]="createUserRequest.name" class="mt-1 p-2 block w-full border rounded-md shadow-sm">
+      <input type="text" id="name" placeholder="Name" name="name" (keydown.enter)="createUser()"[(ngModel)]="createUserRequest.name" class="mt-1 p-2 block w-full border rounded-md shadow-sm">
       </div>
       <div class="inputBx">
-      <input type="email" id="email" placeholder="email" name="email" [(ngModel)]="createUserRequest.email" class="mt-1 p-2 block w-full border rounded-md shadow-sm">
+      <input type="email" id="email" placeholder="email" name="email"  (keydown.enter)="createUser()"[(ngModel)]="createUserRequest.email" class="mt-1 p-2 block w-full border rounded-md shadow-sm">
       </div>
       <div class="inputBx">
-      <input type="password" id="password" placeholder="password"  name="password" [(ngModel)]="createUserRequest.password" class="mt-1 p-2 block w-full border rounded-md shadow-sm">
+      <input type="password" id="password" placeholder="password" (keydown.enter)="createUser()" name="password" [(ngModel)]="createUserRequest.password" class="mt-1 p-2 block w-full border rounded-md shadow-sm">
       </div>
+
       <div class="inputBx">
-        <input type="submit" (click)="createUser()"  routerLink="../login" value="Sign up">
+        <input type="submit" (click)="createUser()"   value="Sign up">
       </div>
 
     </div>

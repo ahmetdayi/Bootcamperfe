@@ -2,7 +2,9 @@ import {Component} from '@angular/core';
 import {UserService} from "../service/user.service";
 import {FormsModule} from "@angular/forms";
 import {CreateUserRequest} from "../DTO/user";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-register',
@@ -20,30 +22,75 @@ export class RegisterComponent {
     email: '',
     password: ''
   };
+  isRegistered: boolean = false;
 
-  showSuccess: boolean = false; // Başarı durumunu göstermek için değişken
-  showError: boolean = false; // Hata durumunu göstermek için değişken
-
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router, private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
   }
 
+  showSuccess(): void {
+    Swal.fire({
+      title: "Good job!",
+      text: "User created successfully!",
+      icon: "success"
+    });
+  }
+
+  showError(errorMessage: string): void {
+    Swal.fire({
+      title: "Error!",
+      text: errorMessage,
+      icon: "error"
+    });
+  }
+
   createUser(): void {
-    this.userService.createUser(this.createUserRequest)
-      .subscribe(
-        response => {
-          console.log('Oluşturulan Kullanıcı:', response);
-          this.showSuccess = true; // Başarılı bildirim göster
-          setTimeout(() => {
-            this.showSuccess = false; // 3 saniye sonra başarılı bildirimi kapat
-          }, 3000);
-        },
-        error => {
-          console.error('Kullanıcı oluşturulurken bir hata oluştu:', error);
-          this.showError = true; // Hata bildirimi göster
-        }
-      );
+    if (this.validatePassword()) {
+      this.userService.createUser(this.createUserRequest)
+        .subscribe(
+          response => {
+            console.log('Oluşturulan Kullanıcı:', response);
+            this.showSuccess(); // Show success notification
+            setTimeout(() => {
+              this.closeAlert();
+              this.router.navigate(['../login']); // Yönlendirme yap
+              // Close the success alert after 3 seconds
+            }, 3000);
+          },
+          error => {
+            console.error('Kullanıcı oluşturulurken bir hata oluştu:', error);
+            if (error.status === 409) {
+              this.showError('User already exists!'); // Show error notification for user already exists
+            } else {
+              this.showError('Error occurred while creating user!'); // Show general error notification
+            }
+          }
+        );
+    } else {
+      this.showPasswordError(); // Show password validation error notification
+    }
+  }
+
+  validatePassword(): boolean {
+    const password = this.createUserRequest.password;
+    // Password validation criteria: only letters (uppercase and lowercase) and punctuation
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
+    return regex.test(password);
+  }
+
+
+  showPasswordError(): void {
+    Swal.fire({
+      title: "Error!",
+      text: "Password must contain only letters (uppercase and lowercase) and punctuation marks!",
+      icon: "error"
+    });
+  }
+
+
+  closeAlert(): void {
+    Swal.close();
   }
 }
