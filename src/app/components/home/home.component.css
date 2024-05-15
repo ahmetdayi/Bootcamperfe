@@ -8,7 +8,14 @@ h1, h2, h3 {
 .body2 {
   min-height: 100vh; /* % veya em gibi göreceli birimler kullanabilirsiniz */
   overflow-x: hidden;
-  font-family: "Mooli", sans-serif;
+  background: linear-gradient(
+    to bottom,
+    rgba(83, 81, 81, 0.9),
+    rgba(50, 50, 50, 0.9),
+    rgba(23, 23, 23, 0.9),
+    rgba(0, 0, 0, 0.9)
+  );
+  font-family: 'Consolas', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
 }
 
 #title {
@@ -66,7 +73,6 @@ h1, h2, h3 {
   align-items: center;
   width: 100%; /* Kartın maksimum genişliğini ekran boyutuna göre ayarlar */
   max-width: 33%; /* Kartın maksimum genişliğini 450 piksel olarak sınırlar */
-  background-color: #fff;
   box-shadow: 0 0.1rem 0.05rem rgba(0, 0, 0, 0.1); /* Hafif bir gölge kullanır */
   border-radius: 1rem;
   padding: 3% 5%; /* Yüzdelik veya em gibi göreceli birimler kullanır */
@@ -174,6 +180,8 @@ h1, h2, h3 {
   position: absolute;
   top: 0;
   left: 0;
+  max-height: 100%;
+  max-width: 100%;
   width: 100%;
   height: 100%;
   display: flex;
@@ -259,7 +267,7 @@ h1, h2, h3 {
   }
 
   .card {
-    width: min(100%, 4.5rem);
+    width: min(100%, 6rem);
   }
 
   .card h3 {

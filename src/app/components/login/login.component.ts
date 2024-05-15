@@ -42,7 +42,7 @@ export class LoginComponent {
         localStorage.setItem("refreshToken", response.refresh_token)
         localStorage.setItem("userId", response.userResponse.id)
         this.userId = this.authResponse.userResponse.id;
-
+        console.log('User ID:', this.userId);
         // Redirect to a certain page after successful login
         this.router.navigate(['']);
 

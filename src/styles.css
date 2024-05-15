@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 body{
   background:linear-gradient(
     to bottom,
@@ -10,8 +12,3 @@ body{
     rgba(0, 0, 0, 0.9)
   );
 }
-
-
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
