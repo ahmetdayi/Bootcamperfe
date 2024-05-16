@@ -43,16 +43,17 @@ export class HeaderComponent {
   }
 
   logout() {
-  localStorage.clear();
-  this.authService.logout();
-  Swal.fire({
-    title: 'Çıkış yapıldı.',
-    icon: 'success',
-    confirmButtonText: 'Tamam'
-  });
-  this.router.navigate(['/']);
-}
-isScrolled: boolean = false;
+    localStorage.clear();
+    this.authService.logout();
+    Swal.fire({
+      title: 'Çıkış yapıldı.',
+      icon: 'success',
+      confirmButtonText: 'Tamam'
+    });
+    this.router.navigate(['/']);
+  }
+
+  isScrolled: boolean = false;
 
 
   @HostListener('window:scroll', [])

@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from "../../service/auth.service";
-import { AuthenticationResponse, authUserRequest, UserResponse } from "../../DTO/user";
-import { FormsModule } from "@angular/forms";
-import { UserService } from "../../service/user.service";
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from "../../service/auth.service";
+import {AuthenticationResponse, authUserRequest, UserResponse} from "../../DTO/user";
+import {FormsModule} from "@angular/forms";
+import {UserService} from "../../service/user.service";
 import Swal from "sweetalert2";
 import {keyframes} from "@angular/animations";
 

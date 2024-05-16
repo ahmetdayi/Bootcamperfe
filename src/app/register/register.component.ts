@@ -45,9 +45,14 @@ export class RegisterComponent {
       icon: "error"
     });
   }
-
+validateEmail(): boolean {
+  const email = this.createUserRequest.email;
+  // E-posta geçerliliği kontrol eden bir regex kullan
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return regex.test(email);
+}
   createUser(): void {
-    if (this.validatePassword()) {
+    if (this.validatePassword()&&this.validateEmail()) {
       this.userService.createUser(this.createUserRequest)
         .subscribe(
           response => {
@@ -84,7 +89,7 @@ export class RegisterComponent {
   showPasswordError(): void {
     Swal.fire({
       title: "Error!",
-      text: "Password must contain only letters (uppercase and lowercase) and punctuation marks!",
+      text: "Password must contain only letters (uppercase and lowercase) and punctuation marks! or Email is not valid!",
       icon: "error"
     });
   }

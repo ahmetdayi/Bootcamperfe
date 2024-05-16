@@ -9,8 +9,7 @@ import {GetTechCareerResponse} from "../../DTO/tech-career";
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [
-  ],
+  imports: [],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
