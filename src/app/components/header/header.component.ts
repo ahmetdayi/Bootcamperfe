@@ -6,6 +6,7 @@ import {AuthenticationResponse, UserResponse} from "../../DTO/user";
 import {AuthService} from "../../service/auth.service";
 import {UserService} from "../../service/user.service";
 import {NgClass} from "@angular/common";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-header',
@@ -42,11 +43,17 @@ export class HeaderComponent {
   }
 
   logout() {
-    localStorage.clear();
-    this.authService.logout()
-    this.router.navigate(['/']);
-  }
-   isScrolled: boolean = false;
+  localStorage.clear();
+  this.authService.logout();
+  Swal.fire({
+    title: 'Çıkış yapıldı.',
+    icon: 'success',
+    confirmButtonText: 'Tamam'
+  });
+  this.router.navigate(['/']);
+}
+isScrolled: boolean = false;
+
 
   @HostListener('window:scroll', [])
   onWindowScroll() {

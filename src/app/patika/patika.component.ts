@@ -35,6 +35,17 @@ export class PatikaComponent implements OnInit {
   }
 
   openLink(patikaId: string) {
+    if(localStorage.getItem('userId') == null){
+      Swal.fire({
+        title: 'Bu bootcampe katılmak için giriş yapmanız gerekmektedir.',
+        icon: 'error',
+        confirmButtonText: 'Tamam'
+      });
+      return;
+
+    }else{
+
+
     Swal.fire({
       title: 'Bu bootcampe katıldınız mı ?',
       icon: 'question',
@@ -48,7 +59,9 @@ export class PatikaComponent implements OnInit {
         this.createUserBootcamp();
         this.router.navigate(['/patika']); // Örnek patika yoluna yönlendirme yapılabilir
       }
+
     });
+    }
   }
 
   createUserBootcamp() {
