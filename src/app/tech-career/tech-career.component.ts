@@ -36,6 +36,15 @@ export class TechCareerComponent {
   }
 
   openLink(coderId: string) {
+    if(localStorage.getItem('userId') == null){
+      Swal.fire({
+        title: 'Bu bootcampe katılmak için giriş yapmanız gerekmektedir.',
+        icon: 'error',
+        confirmButtonText: 'Tamam'
+      });
+      return;
+
+    }else{
     Swal.fire({
       title: 'Bu bootcampe katıldınız mı ?',
       icon: 'question',
@@ -50,17 +59,27 @@ export class TechCareerComponent {
         this.router.navigate(['/coderspace']); // Örnek patika yoluna yönlendirme yapılabilir
       }
     });
-  }
+  }}
 
   createUserBootcamp() {
     this.createBootcampUserRequest.userId = localStorage.getItem('userId');
 
     this.userBootcampService.createUserBootcamp(this.createBootcampUserRequest).subscribe(
+      response => {
+        // Handle successful response if needed
+      },
       error => {
-        console.error(error);
+        if (error.status === 409) {
+          Swal.fire({
+            title: 'Zaten bu bootcampe katıldınız.',
+            icon: 'info',
+            confirmButtonText: 'Tamam'
+          });
+        } else {
+          console.error(error);
+        }
       }
     );
-
   }
 
   private getTechs() {

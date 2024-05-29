@@ -68,11 +68,21 @@ export class PatikaComponent implements OnInit {
     this.createBootcampUserRequest.userId = localStorage.getItem('userId');
 
     this.bootcampUserService.createUserBootcamp(this.createBootcampUserRequest).subscribe(
+      response => {
+        // Handle successful response if needed
+      },
       error => {
-        console.error(error);
+        if (error.status === 409) {
+          Swal.fire({
+            title: 'Zaten bu bootcampe katıldınız.',
+            icon: 'info',
+            confirmButtonText: 'Tamam'
+          });
+        } else {
+          console.error(error);
+        }
       }
     );
-
   }
 
   private getPatikas() {
