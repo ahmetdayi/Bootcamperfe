@@ -56,7 +56,7 @@ export class TechCareerComponent {
         this.createBootcampUserRequest.baseBootcampId = coderId;
 
         this.createUserBootcamp();
-        this.router.navigate(['/coderspace']); // Örnek patika yoluna yönlendirme yapılabilir
+        this.router.navigate(['/techcareer']); // Örnek patika yoluna yönlendirme yapılabilir
       }
     });
   }}
